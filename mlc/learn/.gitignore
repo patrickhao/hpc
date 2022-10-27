@@ -1,3 +1,4 @@
 .ipynb_checkpoints/*
 .pkl_memoize_py3/*
 data/*
+tune_tmp/*
