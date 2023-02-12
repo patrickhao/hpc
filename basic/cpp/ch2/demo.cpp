@@ -1,11 +1,11 @@
 #include <iostream>
 
 int main() {
-    unsigned int a = 0;
-    
-    a = a - 1;
+    int k {10};
 
-    std::cout << a << std::endl;
+    k = k++ + 5;
+
+    std::cout << k << std::endl;
 
     return 0;
 }
