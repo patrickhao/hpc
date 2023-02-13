@@ -1,11 +1,15 @@
 #include <iostream>
 
 int main() {
-    int k {10};
 
-    k = k++ + 5;
+    double a {1e7};
 
-    std::cout << k << std::endl;
+    double b {1e7};
+
+    a += 1e-7;
+
+    std::cout << (a == b) << std::endl;
+
 
     return 0;
 }
