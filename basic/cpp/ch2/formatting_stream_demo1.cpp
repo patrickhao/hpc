@@ -27,7 +27,7 @@ int main() {
     std::cout << b << std::endl;
 
     // 默认情况下，浮点数在一定情况下会使用科学计数法
-    // 定点数就不会
+    // 定点数就不会，对定点数（例如下方的y），setprecision()不会影响其显示的精度
     // 默认的浮点数计数法，保留至多6位，包括小数点前面的，并且会删除无效位
     // 下面是官方的描述
     // When floatfield is set to defaultfloat, floating-point values are written using the default notation: the representation uses as many meaningful digits as needed up to the stream’s decimal precision (precision),
