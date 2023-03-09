@@ -8,6 +8,7 @@ int main() {
     case 1:
         // 虽然在这里j进行了初始化，但是j的作用域是遍布整个switch的
         // 可能在其他case访问到j但是没有初始化，这是危险的行为，下面的bypass也是同样的意思，能被访问但是初始化过程可能会跳过
+        // 这个bypass意味着在变量的作用域内，其定义可能被跳过，此时就发生了bypass
         // gcc编译器报错crosses initialization
         int j {2}; // ILLEGAL - con be reached but can be bypassed
         std::cout << test + j << std::endl;
