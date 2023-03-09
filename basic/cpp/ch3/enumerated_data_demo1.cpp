@@ -1,6 +1,7 @@
 #include <iostream>
 
 int main() {
+    // 相比enum更推荐enum class，具体原因可以看书，后者更安全，所有访问都需要通过命名空间
     enum class Day {Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday};
     // When you reference an enumerator, it must be qualified by the type name
     Day today {Day::Monday};
