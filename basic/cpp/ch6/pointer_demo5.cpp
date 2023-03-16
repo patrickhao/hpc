@@ -17,6 +17,8 @@ int main() {
     std::cout << pvalue1 << std::endl;
 
     // 对这种指针进行dereference是十分危险的，应该保持好习惯，总是将指向空间delete的指针赋为nullptr
+    // 在大型项目中可能多个指针指向同一个地址，那么在这样的情况下delete指针后设为nullptr就变的非常困难
+    // 具体还是要遵循一些好的代码习惯和规范
     // nullptr不能用来访问内存和释放，也不能dereference
     pvalue1 = nullptr;
 
