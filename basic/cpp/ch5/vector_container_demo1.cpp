@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 
 int main() {
     std::vector<int> a(10); // 默认初始化所有元素为0
@@ -27,6 +28,21 @@ int main() {
     std::vector<int> e {1, 2, 3, 4, 5};
 
     std::cout << (d < e) << std::endl;
+
+    std::vector<std::string> f {"1", "2", "3"};
+    // 存储的元素的类类型的情况下可以通过swap交换两个元素的位置
+    f[0].swap(f[1]);
+
+    for (auto v : f) std::cout << v << " ";
+    std::cout << std::endl;
+
+    // swap是类类型自己的方法而不是vector的方法
+    // 很多标准的类型都提供了swap，例如智能指针等等
+    std::string str1 {"123"};
+    std::string str2 {"456"};
+    str1.swap(str2);
+
+    std::cout << str1 << ", " << str2 << std::endl;
 
     return 0;
 }
