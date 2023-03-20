@@ -22,7 +22,20 @@ int main() {
   std::cout << s1 << std::endl;
 
   // 用给定字符串的前五个字符初始化
-  std::string part_literal { "Least said soonest mended.", 5 }; // "Least"
+  std::string part_literal { "Least said soonest mended.", 5 }; // "Least"，相当于0, 5
+  std::cout << part_literal << std::endl;
+  // 也可以指定用哪一段子串初始化，从6开始，往后的4个字符串
+  std::string part_literal2 { "Least said soonest mended.", 6, 4}; // "said"
+  std::cout << part_literal2 << std::endl;
+
+  std::string originStr {"Consistency is the key to success"}; 
+  // 如果是传的字符串，后面的数表示取前多少个字符
+  std::string part_literal3 {"Consistency is the key to success", 15}; // Consistency is 
+  // 如果如果传进去的是string，则后面的数是指开始的地址，默认一直到结束
+  // 传的是字符串的情况下，这种和substr()的功能类似，但是与上面的有点不一致，注意区分一下
+  std::string part_literal4 {originStr, 15}; // the key to success
+  std::cout << part_literal3 << std::endl;
+  std::cout << part_literal4 << std::endl;
 
   // 不能通过单个字符初始化string，必须用双引号包起来，但是可以让字符重复n次
   // 和vector填充的方式类似
