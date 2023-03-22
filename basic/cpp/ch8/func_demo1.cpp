@@ -2,14 +2,35 @@
 
 void func1(int a, double b) {
   std::cout << "int, double" << std::endl;
+
+  // 没有return语句默认是return;
+  // 若返回值不是void，没有return则会报错
+  // 除非在main()函数中，main()函数没有return最后会默认return 0;
 };
 
 void func1(double b, int a) {
   std::cout << "double, int" << std::endl;
 };
 
+// 但是返回值不同会报错，因为调用的时候无法根据函数名和参数类型推断出该调用哪个实现
+// void func1(int a, double b) {
+//   std::cout << "int, double" << std::endl;
+// };
+
 void func2(int a, double b) {
   std::cout << "func2" << std::endl;
+}
+
+int func3(int a) {
+
+  // 返回的是一个拷贝，该拷贝在调用函数处可以访问
+  return 2 * a;
+}
+
+int func4() {
+  double a {1.0} ;
+  // 若类型不匹配会进行类型转换
+  return a;
 }
 
 int main() {
