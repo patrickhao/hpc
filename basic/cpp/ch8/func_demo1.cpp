@@ -45,7 +45,8 @@ int main() {
   int c {1};
   // 下面这种情况类型转换成功
   func2(a, c);
-  // narrowing conversion时部分编译器可能会报错
+  // narrowing conversion时部分编译器可能会报错或者给出警告
+  // 如果无法转换，编译器也会报错
   func2(b, c);
 
   return 0;
