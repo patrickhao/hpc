@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	// channel用于goroutine之间的通信
+	// channel用于goroutine之间的通信，可以用不同的channel在不同的goroutine间通信
 	// 该处定义的是无缓冲的channel
 	// 关于无缓冲的channel，先到达channel的goroutine会等待另一个goroutine取出数据再向下执行
 	c := make(chan int)

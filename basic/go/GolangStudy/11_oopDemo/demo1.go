@@ -22,6 +22,7 @@ func (this Hero) GetName() string {
 }
 
 // *Hero不再是一个拷贝，是指针，直接指向其地址
+// 可以理解为this是Hero指针类型，是一种特殊的变量名，表示该类的实例
 func (this *Hero) SetName(newName string) {
 	this.Name = newName
 }
