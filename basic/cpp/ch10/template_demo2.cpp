@@ -53,6 +53,14 @@ decltype(auto) larger4(const T1 &a, const T2 &b) {
   return a > b ? a : b;
 }
 
+// 可以为模版指定特定类型，对顺序没有要求，可以在任意位置指定默认类型
+// 但是放的位置影响编程时的简洁性，如果放在最后面，需要指定ReturnType时，还需手动指定T1和T2的类型
+// 所以默认类型更加推荐放前面
+template <typename RetureType = double, typename T1, typename T2>
+RetureType larger5(const T1 &a, const T2 &b) {
+  return a > b ? a : b;
+}
+
 int main() {
   double a{1.2}, b{3.4};
   std::cout << *larger(&a, &b) << std::endl;
@@ -74,6 +82,8 @@ int main() {
   double ret2 = larger3(b, c);
 
   std::cout << ret1 << ", " << ret2 << std::endl;
+
+  std::cout << larger5(a, b) << std::endl;
 
   return 0;
 }
