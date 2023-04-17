@@ -56,6 +56,8 @@ public:
   const static Box4 standard_box;
 };
 
+// 没有加上inline的声明方式，在类外通过Box4指定到变量
+// 这里的第一个Box4表示standard_box的类型，第二个Box4用来指定到standard_box
 const Box4 Box4::standard_box{};
 
 int main() {
