@@ -10,6 +10,7 @@ public:
   Box *setLength(double _length) {
     this->length = _length;
     // 通过this返回当前类实例的指针
+    // this指针指向的是该类的实例，类的实例是什么类型，this指针就是什么类型
     return this;
   }
 
