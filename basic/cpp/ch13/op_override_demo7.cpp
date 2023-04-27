@@ -12,6 +12,8 @@ public:
   // 对于某些含有序列成员的类，可以通过重载[]让其可以像数组一样使用
   // 注意这里尽量使用高效的实现，而不是使用遍历等低效的方式
   // 因为该运算符可能会被大量调用，关键部分的性能格外重要
+  // 注意这里的返回值是拷贝，修改其值不会修改实际存储的值
+  // 可以通过返回引用使得值可以被修改
   int operator[](size_t index) const { return data[index]; }
 
   friend std::ostream &operator<<(std::ostream &stream,
