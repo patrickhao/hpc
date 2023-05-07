@@ -2,6 +2,7 @@
 #include <string>
 
 class Box {
+  // 通过继承的访问权限控制符来控制父类中继承来过的属性对外部类的访问权限
 protected:
   double length{1.0};
   double width{1.0};
@@ -14,6 +15,7 @@ public:
   Box(double l, double w, double h) : length{l}, width{w}, height{h} {}
 };
 
+// 通过继承访问权限控制符来控制父类中继承过来属性在后续派生类中的访问权限
 class Carton : private Box {
 private:
   std::string material;
