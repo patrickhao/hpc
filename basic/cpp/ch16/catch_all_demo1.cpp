@@ -30,6 +30,8 @@ int main() {
       // 例如这里的使用方法，表示捕捉到异常，但是不进行处理，rethrow给上层处理
       // 不能利用catch(...)来偷懒不进行异常处理
       // 在catch中尽可能的处理详细的错误信息并记录到日志中
+      //
+      // 这里的含义更多的是记录捕获到了异常，并且rethrow这些异常
       std::cout << "catch exception" << std::endl;
       throw;
     }
