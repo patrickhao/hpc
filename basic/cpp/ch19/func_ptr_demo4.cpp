@@ -11,6 +11,8 @@ const T *findOptimum(const std::vector<T> &values, Comparison compare) {
   const T *optimum = &values[0];
 
   for (size_t i{1}; i < values.size(); ++i) {
+    // 不论Comparison是什么类型，其都需要能够使用()运算符
+    // 要么是函数指针，要么是重载了()运算符的函数对象或者其他符合定义的类型
     if (compare(values[i], *optimum)) {
       optimum = &values[i];
     }
@@ -30,7 +32,9 @@ private:
   int m_value;
 };
 
-bool longer(const std::string &, const std::string &);
+bool less(int a, int b) {
+  return a < b;
+}
 
 int main() {
   std::vector numbers{1, 2, 3, 4, 5, 6, 7};
@@ -38,6 +42,10 @@ int main() {
   // 函数对象比函数指针更强大，当出现成员变量的时候，就需要函数对象了
   // 这里的例子是找到和用户指定的值最相近的值，这里由用户指定的值3
   // 通过普通的函数指针很难漂亮的实现，但是通过重载()运算符的函数对象，可以为这个对象加入成员变量很好的实现这个功能
-  std::cout << "result: " << *findOptimum(numbers, Nearer{3}) << std::endl;
+  std::cout << "result near: " << *findOptimum(numbers, Nearer{3}) << std::endl;
+
+  // 由于findOptimum使用的是模板，compare的类型会在使用findOptimum时自动推断
+  // 因此这里不仅仅可以是函数对象，也可以是函数指针，类型会在使用findOptimum时由编译器推断Comparison的类型
+  std::cout << "result less: " << *findOptimum(numbers, less) << std::endl;
 
 }
