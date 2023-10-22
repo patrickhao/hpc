@@ -55,5 +55,22 @@ int main() {
     return std::abs(x - number_to_search_for) < std::abs(y - number_to_search_for);
   }};
 
+  // 实际上拿到的是拷贝，无法修改原值
+  // 为了避免歧义，编译器不允许修改在lambda函数体中修改值，具体的做法是将operator()的重载函数声明为const
+  // 无法在const函数中修改任何成员信息
+  // auto func1 {[=]() {
+  //   number_to_search_for = 1;
+  // }};
+
+  // 可以在lambda函数后加上mutable来使得捕获到的拷贝能够修改，但是这种修改也是对拷贝的修改，无法直接修改源值，若需要修改原值，使用引用捕获
+  auto func2 {[=]() mutable {
+    number_to_search_for = 1;
+  }};
+
   std::cout << "result: " << *findOptimum(numbers, nearer) << std::endl;
+
+  func2();
+
+  // 因为func2()实际上也是修改的拷贝的值，对原来的值没有影响
+  std::cout << number_to_search_for << std::endl;
 }
